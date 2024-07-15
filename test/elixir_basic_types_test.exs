@@ -84,7 +84,7 @@ defmodule BasicTypesTest do
     assert 1 || true == 1
     assert false || 11 == 11
     assert (nil && 13) == nil
-    # assert (true && 17) == 17
+    # sassert (true && 17) == 17
     assert !true == false
     assert !1 == false
     assert !nil == true
