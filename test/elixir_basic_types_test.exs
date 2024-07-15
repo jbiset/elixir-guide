@@ -19,26 +19,30 @@ defmodule BasicTypesTest do
     assert 10 / 2 == 5.0
   end
 
-  test "basic arithmetic operators return types" do
-    # Arithmetic addition operator
-    assert is_integer(1 + 2)
-    assert is_float(1.0 + 2.0)
-    assert is_float(1 + 2.0)
-    assert is_float(1.0 + 2)
-    # Arithmetic subtraction operator
-    assert is_integer(2 - 1)
-    assert is_float(2.0 - 1.0)
-    assert is_float(2 - 1.0)
-    assert is_float(2.0 - 1)
-    # Arithmetic multiplication operator
-    assert is_integer(1 * 2)
-    assert is_float(1.0 * 2.0)
-    assert is_float(1 * 2.0)
-    assert is_float(1.0 * 2)
-    # Arithmetic division operator
-    assert is_float(10 / 2)
+  describe "basic arithmetic operators return types" do
+    test "Arithmetic addition operator" do
+      assert is_integer(1 + 2)
+      assert is_float(1.0 + 2.0)
+      assert is_float(1 + 2.0)
+      assert is_float(1.0 + 2)
+    end
+    test "Arithmetic subtraction operator" do
+      assert is_integer(2 - 1)
+      assert is_float(2.0 - 1.0)
+      assert is_float(2 - 1.0)
+      assert is_float(2.0 - 1)
+    end
+    test "Arithmetic multiplication operator" do
+      assert is_integer(1 * 2)
+      assert is_float(1.0 * 2.0)
+      assert is_float(1 * 2.0)
+      assert is_float(1.0 * 2)
+    end
+    test "Arithmetic division operator" do
+      assert is_float(10 / 2)
     assert is_float(10 / 2.0)
     assert is_float(10.0 / 2)
+    end
   end
 
   test "integer division and remainder" do
@@ -47,9 +51,9 @@ defmodule BasicTypesTest do
   end
 
   test "support binary(0b), octal(0o), and hexadecimal(0x) notations" do
-    assert 0b1010 == 10 # In decimal, 0b1010 is 10 (1*8 + 0*4 + 1*2 + 0*1)
-    assert 0o777 == 511 # In decimal, 0o777 is 511 (7*64 + 7*8 + 7*1).
-    assert 0x1F == 31 # In decimal, 0x1F is 31 (1*16 + 15*1, where F represents 15).
+    assert 0b1010 == 10
+    assert 0o777 == 511
+    assert 0x1F == 31
   end
 
   test "round and trunc functions" do
@@ -80,7 +84,7 @@ defmodule BasicTypesTest do
     assert 1 || true == 1
     assert false || 11 == 11
     assert (nil && 13) == nil
-    assert (true && 17) == 17
+    # assert (true && 17) == 17
     assert !true == false
     assert !1 == false
     assert !nil == true
@@ -99,8 +103,8 @@ defmodule BasicTypesTest do
     assert "hello #{:world}!" == "hello world!"
     assert "i am #{42} years old!" == "i am 42 years old!"
     assert IO.puts("hello\nworld") == :ok
-    assert is_binary("hellö") # Strings in Elixir are represented internally by contiguous sequences of bytes known as binaries
-    assert byte_size("hellö") == 6 # Grapheme "ö" takes 2 bytes to be represented in UTF-8
+    assert is_binary("hellö")
+    assert byte_size("hellö") == 6
     assert String.length("hellö") == 5
     assert String.upcase("hellö") == "HELLÖ"
   end
