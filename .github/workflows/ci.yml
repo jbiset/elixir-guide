@@ -1,0 +1,32 @@
+name: Elixir Test and format
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Elixir
+        uses: actions/setup-elixir@v1
+        with:
+          otp-version: "26.x"
+          elixir-version: "1.16.x"
+
+      - name: Install dependencies
+        run: mix deps.get
+
+      - name: Run tests
+        run: mix test
+
+      - name: Check code formatting
+        run: mix format --check-formatted

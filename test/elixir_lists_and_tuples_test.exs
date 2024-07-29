@@ -19,9 +19,9 @@ defmodule ListsAndTuplesTest do
     end
 
     test "list operators never modify the existing list" do
-      new_list = [1,2,3]
+      new_list = [1, 2, 3]
       _ = new_list -- [3]
-      assert new_list == [1,2,3]
+      assert new_list == [1, 2, 3]
     end
 
     test "retrieving head and tail of a list" do
@@ -105,9 +105,9 @@ defmodule ListsAndTuplesTest do
   end
 
   describe "Tagged tuples" do
-   test "File.read/1 returns tagged tuples" do
-     assert File.read("test/example_to_read_file.txt") == {:ok, "example content"}
-     assert File.read("unknown_file") == {:error, :enoent}
-   end
+    test "File.read/1 returns tagged tuples" do
+      assert File.read("test/example_to_read_file.txt") == {:ok, "example content"}
+      assert File.read("unknown_file") == {:error, :enoent}
+    end
   end
 end
