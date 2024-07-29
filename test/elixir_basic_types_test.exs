@@ -26,22 +26,25 @@ defmodule BasicTypesTest do
       assert is_float(1 + 2.0)
       assert is_float(1.0 + 2)
     end
+
     test "Arithmetic subtraction operator" do
       assert is_integer(2 - 1)
       assert is_float(2.0 - 1.0)
       assert is_float(2 - 1.0)
       assert is_float(2.0 - 1)
     end
+
     test "Arithmetic multiplication operator" do
       assert is_integer(1 * 2)
       assert is_float(1.0 * 2.0)
       assert is_float(1 * 2.0)
       assert is_float(1.0 * 2)
     end
+
     test "Arithmetic division operator" do
       assert is_float(10 / 2)
-    assert is_float(10 / 2.0)
-    assert is_float(10.0 / 2)
+      assert is_float(10 / 2.0)
+      assert is_float(10.0 / 2)
     end
   end
 
@@ -93,9 +96,9 @@ defmodule BasicTypesTest do
   test "atoms" do
     assert :apple == :apple
     refute :apple == :orange
-    assert true == :true
+    assert true == true
     assert is_atom(false)
-    assert is_boolean(:false)
+    assert is_boolean(false)
   end
 
   test "strings" do
