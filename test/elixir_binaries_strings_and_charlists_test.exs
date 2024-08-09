@@ -2,7 +2,6 @@ defmodule BinariesStringsCharlistsTest do
   use ExUnit.Case
 
   describe "Binaries, strings, and charlists" do
-
     test "check if a string is a binary" do
       string = "hello"
       assert is_binary(string)
@@ -48,6 +47,7 @@ defmodule BinariesStringsCharlistsTest do
     test "pattern matching on binaries" do
       assert <<0, 1, x>> = <<0, 1, 2>>
       assert x == 2
+
       assert_raise MatchError, fn ->
         <<0, 1, _x>> = <<0, 1, 2, 3>>
       end
@@ -107,6 +107,5 @@ defmodule BinariesStringsCharlistsTest do
       # end
       assert "he" <> "llo" == "hello"
     end
-
   end
 end
