@@ -42,7 +42,7 @@ defmodule ModulesAndFunctionsTest do
     assert Math.sum(0, 0) == 0
   end
 
-    test "Math.zero?/1 returns true if the number is zero" do
+  test "Math.zero?/1 returns true if the number is zero" do
     assert Math.zero?(0) == true
   end
 
@@ -63,7 +63,7 @@ defmodule ModulesAndFunctionsTest do
   end
 
   test "Math.do_sum/2 cannot be called outside of the Math module" do
-    assert_raise UndefinedFunctionError, fn  -> Math.do_sum(1, 2) end
+    assert_raise UndefinedFunctionError, fn -> Math.do_sum(1, 2) end
   end
 
   test "Concat.join/2 concatenates two strings with default separator" do
