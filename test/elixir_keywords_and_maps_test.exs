@@ -47,12 +47,12 @@ defmodule KeywordsAndMapsTests do
 
     test "do-blocks as keyword lists" do
       assert (if true do
-        "This will be seen"
-      else
-        "This won't"
-      end) == "This will be seen"
+                "This will be seen"
+              else
+                "This won't"
+              end) == "This will be seen"
 
-      assert (if true, do: "This will be seen", else: "This won't") == "This will be seen"
+      assert if(true, do: "This will be seen", else: "This won't") == "This will be seen"
     end
   end
 
@@ -102,6 +102,7 @@ defmodule KeywordsAndMapsTests do
         john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
         mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
       ]
+
       {:ok, users: users}
     end
 
@@ -115,7 +116,9 @@ defmodule KeywordsAndMapsTests do
     end
 
     test "updating nested data with update_in", %{users: users} do
-      updated_users = update_in(users[:mary].languages, fn languages -> List.delete(languages, "Clojure") end)
+      updated_users =
+        update_in(users[:mary].languages, fn languages -> List.delete(languages, "Clojure") end)
+
       assert updated_users[:mary].languages == ["Elixir", "F#"]
     end
   end
